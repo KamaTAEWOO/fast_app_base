@@ -4,8 +4,12 @@ import 'package:fast_app_base/screen/main/tab/home/f_home.dart';
 import 'package:flutter/material.dart';
 
 enum TabItem {
+  // 라인복사 단축키 : Alt + Shift + 방향키 아래
   home(Icons.home, '홈', HomeFragment()),
-  favorite(Icons.star, '즐겨찾기', FavoriteFragment(isShowBackButton: false));
+  benefit(Icons.home, '혜택', HomeFragment()),
+  tosspay(Icons.home, '토스페이', HomeFragment()),
+  stock(Icons.home, '주식', HomeFragment()),
+  alll(Icons.star, '전체', FavoriteFragment(isShowBackButton: false));
 
   final IconData activeIcon;
   final IconData inActiveIcon;

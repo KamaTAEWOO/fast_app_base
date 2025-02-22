@@ -5,7 +5,11 @@ import 'app.dart';
 import 'common/data/preference/app_preferences.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  final bindings = WidgetsFlutterBinding.ensureInitialized();
+  // FlutterNativeSplash 를 대신 해주는 기능
+  if (bindings is WidgetsFlutterBinding) {
+    await Future<void>.delayed(const Duration(milliseconds: 1500));
+  }
   await EasyLocalization.ensureInitialized();
   await AppPreferences.init();
 
