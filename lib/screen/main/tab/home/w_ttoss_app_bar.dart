@@ -1,7 +1,9 @@
+import 'package:fast_app_base/common/common.dart';
 import 'package:fast_app_base/common/constants.dart';
 import 'package:fast_app_base/common/dart/extension/context_extension.dart';
 import 'package:fast_app_base/common/widget/w_empty_expanded.dart';
 import 'package:fast_app_base/common/widget/w_height_and_width.dart';
+import 'package:fast_app_base/screen/notification/s_notification.dart';
 import 'package:flutter/material.dart';
 
 class TtossAppBar extends StatefulWidget {
@@ -33,24 +35,31 @@ class _TtossAppBarState extends State<TtossAppBar> {
               height: 30,
             ),
             Width10,
-            Stack(
-              children: [
-                Image.asset(
-                  "$basePath/icon/notification.png",
-                  height: 30,
-                ),
-                if(_showRedDot) Positioned.fill(
-                  child: Align(
-                    alignment: Alignment.topRight,
-                    child: Container(
-                      width: 6,
-                      height: 6,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle, color: Colors.red),
-                    ),
+            Tap(
+              onTap: () {
+                // 알림 화면
+                Nav.push(NotificationScreen());
+              },
+              child: Stack(
+                children: [
+                  Image.asset(
+                    "$basePath/icon/notification.png",
+                    height: 30,
                   ),
-                )
-              ],
+                  if (_showRedDot)
+                    Positioned.fill(
+                      child: Align(
+                        alignment: Alignment.topRight,
+                        child: Container(
+                          width: 6,
+                          height: 6,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.red),
+                        ),
+                      ),
+                    )
+                ],
+              ),
             ),
             Width10,
           ],

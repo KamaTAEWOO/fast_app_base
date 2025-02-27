@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'app.dart';
 import 'common/data/preference/app_preferences.dart';
 
+import 'package:timeago/timeago.dart' as timeago;
+
 void main() async {
   final bindings = WidgetsFlutterBinding.ensureInitialized();
   // FlutterNativeSplash 를 대신 해주는 기능
@@ -12,6 +14,7 @@ void main() async {
   }
   await EasyLocalization.ensureInitialized();
   await AppPreferences.init();
+  timeago.setLocaleMessages('ko', timeago.KoMessages());
 
   runApp(EasyLocalization(
       supportedLocales: const [Locale('en'), Locale('ko')],
