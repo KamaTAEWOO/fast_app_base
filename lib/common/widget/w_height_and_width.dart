@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+const Width20 = Width(20);
 const Width10 = Width(10);
 const Width5 = Width(5);
 
